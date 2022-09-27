@@ -1,14 +1,38 @@
 <template>
   <div>
     <v-container>
-      <p class="text-h6">Here's the latest summary on your profile</p>
+      <p class="text-xs-h6 text-md-h6 text-lg-h6">
+        Here's the latest summary on your profile
+      </p>
       <v-divider />
-      <div>
-        <p>Click the button to download all the data</p>
-        <v-spacer />
-        <v-btn prepend-icon="mdi-cloud-download" color="grey">Download</v-btn>
+      <div class="mt">
+        <v-row>
+          <v-col>
+            <p
+              class="
+                text-sm-body-2 text-md-body-1 text-lg-body-1 text-xl-body-1
+              "
+            >
+              Click the button to download all the data
+            </p>
+          </v-col>
+          <!-- <v-spacer /> -->
+          <v-col>
+            <v-btn color="grey">
+              <span class="material-icons"> file_download </span>
+
+              Download</v-btn
+            >
+          </v-col>
+        </v-row>
       </div>
-      <el-table :data="tableData" stripe style="width: 100%">
+      <el-table
+        :data="tableData"
+        stripe
+        style="width: 100%"
+        class="mt"
+        :default-sort="{ prop: 'name', order: 'descending' }"
+      >
         <el-table-column prop="name" label="Registrant" width="180" />
         <el-table-column prop="name" label="Status" width="180" />
         <el-table-column prop="payment" label="Last Payment" />
@@ -18,35 +42,38 @@
       </el-table>
 
       <v-divider />
-      <span> Our most frequently asked questions </span>
-      <ul>
-        <li v-for="(faq, index) in faqs" :key="index">
-          <nuxt-link :to="faq.link">
-            {{ faq.title }}
-          </nuxt-link>
-        </li>
-      </ul>
+      <div class="mt mb">
+        <span> Our most frequently asked questions </span>
+        <ul>
+          <li v-for="(faq, index) in faqs" :key="index">
+            <nuxt-link :to="faq.link">
+              {{ faq.title }}
+            </nuxt-link>
+          </li>
+        </ul>
+      </div>
       <v-divider />
-
-      <v-row justify="start" no-gutters>
-        <v-col>
-          <v-avatar size="42px">
-            <v-img
-              alt="Avatar"
-              src="https://avatars0.githubusercontent.com/u/9064066?v=4&s=460"
-            ></v-img>
-          </v-avatar>
-        </v-col>
-        <v-col>
-          <p class="text-h6">Our fight for your rights</p>
-          <p class="text-body-2">
-            We stand behind the interest of creative community. This is
-            reflected in our commitment to preserving long-term value of music
-            and advocating on your behalf so that you are paid fairly. Learn
-            more about the soe Advocacy work
-          </p>
-        </v-col>
-      </v-row>
+      <div class="mt">
+        <v-row justify="start" align="left">
+          <v-col cols="2">
+            <v-avatar size="42px">
+              <v-img
+                alt="Avatar"
+                src="https://static.thenounproject.com/png/28299-200.png"
+              ></v-img>
+            </v-avatar>
+          </v-col>
+          <v-col>
+            <p class="text-h6">Our fight for your rights</p>
+            <p class="text-body-2">
+              We stand behind the interest of creative community. This is
+              reflected in our committment to preserving long-term value of
+              music and advocating on your behalf so that you are paid fairly.
+              Learn more about the soe Advocacy work.
+            </p>
+          </v-col>
+        </v-row>
+      </div>
     </v-container>
   </div>
 </template>

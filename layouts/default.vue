@@ -1,34 +1,33 @@
 <template>
   <v-app>
     <v-app-bar>
+      <v-app-bar-nav-icon class="hidden-md-and-up">
+        <span class="material-icons"> menu </span>
+      </v-app-bar-nav-icon>
       <v-app-bar-title> SOE </v-app-bar-title>
       <v-spacer></v-spacer>
+      <div class="hidden-sm-and-down">
+        <v-menu v-for="(item, index) in nav" open-on-hover :key="index">
+          <template v-slot:activator="{ props }">
+            <v-btn flat v-bind="props">
+              {{ item.title }}
+            </v-btn>
+          </template>
 
-      <v-menu v-for="(item, index) in nav" open-on-hover :key="index">
-        <template v-slot:activator="{ props }">
-          <v-btn flat v-bind="props">
-            <!-- <v-icon left dark>{{ item.icon }}</v-icon> -->
-            {{ item.title }}
-          </v-btn>
-        </template>
-
-        <v-list>
-          <v-list-item v-for="(link, i) in item.items" :key="'tab_' + i">
-            <v-list-item-title>{{ link.title }}</v-list-item-title>
-          </v-list-item>
-        </v-list>
-      </v-menu>
+          <v-list>
+            <v-list-item v-for="(link, i) in item.items" :key="'tab_' + i">
+              <v-list-item-title>{{ link.title }}</v-list-item-title>
+            </v-list-item>
+          </v-list>
+        </v-menu>
+      </div>
       <v-spacer></v-spacer>
-      <v-btn icon color="green">
-        <v-icon color="green">mdi-magnify</v-icon>
-      </v-btn>
 
       <v-btn icon>
-        <v-icon>mdi-heart</v-icon>
+        <span class="material-icons"> account_circle </span>
       </v-btn>
-
       <v-btn icon>
-        <v-icon>mdi-dots-vertical</v-icon>
+        <span class="material-icons"> logout </span>
       </v-btn>
     </v-app-bar>
     <v-main>
@@ -123,6 +122,15 @@ export default {
   },
 };
 </script>
-  
-  <style>
+<script setup>
+useHead({
+  link: [
+    {
+      rel: "stylesheet",
+      href: "https://fonts.googleapis.com/icon?family=Material+Icons",
+    },
+  ],
+});
+</script>
+<style>
 </style>
