@@ -54,7 +54,7 @@
       </div>
       <v-divider />
       <div class="mt">
-        <v-row justify="start" align="left">
+        <v-row justify="start">
           <v-col cols="2">
             <v-avatar size="42px">
               <v-img

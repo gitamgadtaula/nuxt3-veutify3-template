@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <v-app-bar>
-      <v-app-bar-nav-icon class="hidden-md-and-up">
+      <v-app-bar-nav-icon class="hidden-md-and-up" @click="toggleDrawer">
         <span class="material-icons"> menu </span>
       </v-app-bar-nav-icon>
       <v-app-bar-title> SOE </v-app-bar-title>
@@ -25,11 +25,37 @@
 
       <v-btn icon>
         <span class="material-icons"> account_circle </span>
+        <v-tooltip activator="parent" location="bottom"
+          >johndoe@email.com</v-tooltip
+        >
       </v-btn>
       <v-btn icon>
         <span class="material-icons"> logout </span>
+        <v-tooltip activator="parent" location="bottom">Logout</v-tooltip>
       </v-btn>
     </v-app-bar>
+
+    <v-navigation-drawer v-model="drawer" temporary>
+      <v-menu v-for="(item, index) in nav" open-on-hover :key="index">
+        <template v-slot:activator="{ props }">
+          <v-btn flat v-bind="props">
+            {{ item.title }}
+          </v-btn>
+        </template>
+
+        <v-list>
+          <v-list-item v-for="(link, i) in item.items" :key="'tab_' + i">
+            <v-list-item-title>{{ link.title }}</v-list-item-title>
+          </v-list-item>
+        </v-list>
+      </v-menu>
+      <!-- <v-list>
+        <v-list-item v-for="(item, i) in nav" :key="'tab_' + i">
+          <v-list-item-title>{{ item.text }}</v-list-item-title>
+        </v-list-item>
+      </v-list> -->
+    </v-navigation-drawer>
+
     <v-main>
       <v-container fluid>
         <slot />
@@ -67,6 +93,7 @@
 export default {
   data() {
     return {
+      drawer: false,
       nav: [
         {
           icon: "home",
@@ -119,6 +146,11 @@ export default {
       ],
       links: ["Soe.com", "About Us", "Team", "Services", "Blog", "Contact Us"],
     };
+  },
+  methods: {
+    toggleDrawer() {
+      this.drawer = !this.drawer;
+    },
   },
 };
 </script>
