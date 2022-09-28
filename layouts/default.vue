@@ -14,11 +14,7 @@
             </v-btn>
           </template>
 
-          <v-list>
-            <v-list-item v-for="(link, i) in item.items" :key="'tab_' + i">
-              <v-list-item-title>{{ link.title }}</v-list-item-title>
-            </v-list-item>
-          </v-list>
+          <v-list :items="item.items"></v-list>
         </v-menu>
       </div>
       <v-spacer></v-spacer>
@@ -43,17 +39,8 @@
           </v-btn>
         </template>
 
-        <v-list>
-          <v-list-item v-for="(link, i) in item.items" :key="'tab_' + i">
-            <v-list-item-title>{{ link.title }}</v-list-item-title>
-          </v-list-item>
-        </v-list>
+        <v-list :items="item.items"></v-list>
       </v-menu>
-      <!-- <v-list>
-        <v-list-item v-for="(item, i) in nav" :key="'tab_' + i">
-          <v-list-item-title>{{ item.text }}</v-list-item-title>
-        </v-list-item>
-      </v-list> -->
     </v-navigation-drawer>
 
     <v-main>
@@ -101,10 +88,10 @@ export default {
           title: "Home page",
           active: true,
           items: [
-            { title: "Click Me" },
-            { title: "Click Me" },
-            { title: "Click Me" },
-            { title: "Click Me 2" },
+            { title: "Click Me", value: "1" },
+            { title: "Click Me", value: "2" },
+            { title: "Click Me", value: "3" },
+            { title: "Click Me 2", value: "4" },
           ],
         },
         {
@@ -113,10 +100,10 @@ export default {
           title: "About this demo",
           active: false,
           items: [
-            { title: "Click Me" },
-            { title: "Click Me" },
-            { title: "Click Me" },
-            { title: "Click Me 2" },
+            { title: "Click Me", value: "1" },
+            { title: "Click Me", value: "2" },
+            { title: "Click Me", value: "3" },
+            { title: "Click Me 2", value: "4" },
           ],
         },
         {
@@ -125,10 +112,10 @@ export default {
           title: "Some stuff",
           active: false,
           items: [
-            { title: "Click Me" },
-            { title: "Click Me" },
-            { title: "Click Me" },
-            { title: "Click Me 2" },
+            { title: "Click Me", value: "1" },
+            { title: "Click Me", value: "2" },
+            { title: "Click Me", value: "3" },
+            { title: "Click Me 2", value: "4" },
           ],
         },
         {
@@ -137,10 +124,10 @@ export default {
           title: "Our Contact",
           active: false,
           items: [
-            { title: "Click Me" },
-            { title: "Click Me" },
-            { title: "Click Me" },
-            { title: "Click Me 2" },
+            { title: "Click Me", value: "1" },
+            { title: "Click Me", value: "2" },
+            { title: "Click Me", value: "3" },
+            { title: "Click Me 2", value: "4" },
           ],
         },
       ],
