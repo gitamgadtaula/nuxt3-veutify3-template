@@ -14,7 +14,7 @@
             </v-btn>
           </template>
 
-          <v-list :items="item.items"></v-list>
+          <v-list :items="item.items" v-if="item.items.length"></v-list>
         </v-menu>
       </div>
       <v-spacer></v-spacer>
@@ -39,7 +39,7 @@
           </v-btn>
         </template>
 
-        <v-list :items="item.items"></v-list>
+        <v-list nav dense :items="item.items"></v-list>
       </v-menu>
     </v-navigation-drawer>
 
@@ -85,52 +85,120 @@ export default {
         {
           icon: "home",
           text: "Home",
-          title: "Home page",
+          title: "Home",
           active: true,
-          items: [
-            { title: "Click Me", value: "1" },
-            { title: "Click Me", value: "2" },
-            { title: "Click Me", value: "3" },
-            { title: "Click Me 2", value: "4" },
-          ],
+          items: [],
         },
         {
           icon: "info",
-          text: "About",
-          title: "About this demo",
+          text: "Settings",
+          title: "Settings",
           active: false,
           items: [
-            { title: "Click Me", value: "1" },
-            { title: "Click Me", value: "2" },
-            { title: "Click Me", value: "3" },
-            { title: "Click Me 2", value: "4" },
+            { title: "Registrant Details", value: "1" },
+            { title: "Docusign Status", value: "2" },
           ],
         },
         {
           icon: "assignment_turned_in",
-          text: "Todos",
-          title: "Some stuff",
+          text: "My Catalog",
+          title: "My Catalog",
           active: false,
           items: [
-            { title: "Click Me", value: "1" },
-            { title: "Click Me", value: "2" },
-            { title: "Click Me", value: "3" },
-            { title: "Click Me 2", value: "4" },
+            { title: "Associated Recordings", value: "1" },
+            { title: "Search and Claim", value: "2" },
+            { title: "Submit Recordings", value: "3" },
+            { title: "Overlaps and Disputes", value: "4" },
+            { title: "Submission History", value: "5" },
+            { title: "About my Catalog", value: "6" },
+          ],
+        },
+        {
+          icon: "email",
+          text: "Letter of Direction",
+          title: "Letter of Direction",
+          active: false,
+          items: [
+            { title: "Submit New", value: "1" },
+            { title: "Current List", value: "2" },
+          ],
+        },
+        {
+          icon: "email",
+          text: "Music Speaks",
+          title: "Music Speaks",
+          active: false,
+          items: [
+            { title: "Submit New", value: "1" },
+            { title: "Current List", value: "2" },
           ],
         },
         {
           icon: "email",
           text: "Contact",
-          title: "Our Contact",
+          title: "Contact",
           active: false,
-          items: [
-            { title: "Click Me", value: "1" },
-            { title: "Click Me", value: "2" },
-            { title: "Click Me", value: "3" },
-            { title: "Click Me 2", value: "4" },
-          ],
+          items: [],
+        },
+        {
+          icon: "email",
+          text: "FAQ",
+          title: "FAQ",
+          link: "/faq",
+          active: false,
+          items: [],
         },
       ],
+      // nav: [
+      //   {
+      //     icon: "home",
+      //     text: "Home",
+      //     title: "Home page",
+      //     active: true,
+      //     items: [
+      //       // { title: "Click Me", value: "1" },
+      //       // { title: "Click Me", value: "2" },
+      //       // { title: "Click Me", value: "3" },
+      //       // { title: "Click Me 2", value: "4" },
+      //     ],
+      //   },
+      //   {
+      //     icon: "info",
+      //     text: "About",
+      //     title: "About this demo",
+      //     active: false,
+      //     items: [
+      //       { title: "Click Me", value: "1" },
+      //       { title: "Click Me", value: "2" },
+      //       { title: "Click Me", value: "3" },
+      //       { title: "Click Me 2", value: "4" },
+      //     ],
+      //   },
+      //   {
+      //     icon: "assignment_turned_in",
+      //     text: "Todos",
+      //     title: "Some stuff",
+      //     active: false,
+      //     items: [
+      //       { title: "Click Me", value: "1" },
+      //       { title: "Click Me", value: "2" },
+      //       { title: "Click Me", value: "3" },
+      //       { title: "Click Me 2", value: "4" },
+      //     ],
+      //   },
+      //   {
+      //     icon: "email",
+      //     text: "Contact",
+      //     title: "Our Contact",
+      //     active: false,
+      //     items: [
+      //       { title: "Click Me", value: "1" },
+      //       { title: "Click Me", value: "2" },
+      //       { title: "Click Me", value: "3" },
+      //       { title: "Click Me 2", value: "4" },
+      //     ],
+      //   },
+      // ],
       links: ["Soe.com", "About Us", "Team", "Services", "Blog", "Contact Us"],
     };
   },

@@ -13,3 +13,9 @@ ul {
 .mb {
     margin-bottom: 1.4rem;
 }
+
+.v-navigation-drawer__content {
+    flex-direction: column;
+    display: flex;
+    align-items: flex-start;
+}
